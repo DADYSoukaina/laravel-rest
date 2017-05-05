@@ -12,7 +12,12 @@ class CreateMeetingUserTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('meeting_user', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            $table->integer('user_id');
+            $table->integer('meeting_id');
+        });
     }
 
     /**
@@ -22,6 +27,6 @@ class CreateMeetingUserTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('meeting_user');
     }
 }
